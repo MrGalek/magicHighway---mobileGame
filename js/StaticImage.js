@@ -3,9 +3,9 @@ class StaticImage extends GameObject
     /* Each gameObject MUST have a constructor() and a render() method.        */
     /* If the object animates, then it must also have an updateState() method. */
 
-    constructor(image, x, y, width, height)
+    constructor(image, x, y, width, height, player)
     {
-        super(null); /* as this class extends from GameObject, you must always call super() */
+        super(1); /* as this class extends from GameObject, you must always call super() */
 
         /* These variables depend on the object */
         this.image = image;
@@ -14,6 +14,19 @@ class StaticImage extends GameObject
         this.x = x;
         this.y = y;
         this.flag = true;
+        this.player = player
+    }
+
+    updateState()
+    {   
+        if(this.player == false){
+         this.y+=2;
+         if (this.y > canvas.height)
+         {
+            this.y = 0;
+            this.randomSet();
+         }
+        }   
     }
 
     render()
@@ -21,8 +34,7 @@ class StaticImage extends GameObject
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
 
-    movePlayer()
-    {
+    movePlayer(){
         if(this.flag == true){
             this.flag = false
             this.x=330
@@ -30,5 +42,17 @@ class StaticImage extends GameObject
             this.flag = true
             this.x=130
         }
+    }
+
+    randomSet(){
+        var side = Math.floor((Math.random()*2))
+
+        if(side==1){
+            this.x = 130
+        }
+        else{
+            this.x = 330
+        }
+
     }
 }

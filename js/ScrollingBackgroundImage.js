@@ -30,9 +30,6 @@ class ScrollingBackgroundImage extends GameObject
     {
         ctx.drawImage(this.image, 0, 0 - this.x, canvas.width, canvas.height);
         ctx.drawImage(this.image, 0, canvas.height - this.x, canvas.width, canvas.height);
-
-        console.log(canvas.height - this.x);
-
     }
 
     setV(v){
