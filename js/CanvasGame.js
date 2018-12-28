@@ -60,7 +60,12 @@ class CanvasGame
     
     collisionDetection()
     {
-        /* If you need to implement collision detection in your game, then you can overwrite this method in your sub-class. */
-        /* If you do not need to implement collision detection, then you do not need to overwrite this method.              */
+        for(let i=2; i<=5;i++){
+            if(gameObjects[i].x==gameObjects[1].x && gameObjects[i].y==gameObjects[1].y){
+                for(let j=0; j<gameObjects.length; j++){
+                    gameObjects[j].stop();
+                }
+            }
+        }
     }
 }

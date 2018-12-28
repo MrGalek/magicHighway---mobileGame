@@ -20,7 +20,7 @@ class StaticImage extends GameObject
     updateState()
     {   
         if(this.player == false){
-         this.y+=2;
+         this.y+=1;
          if (this.y > canvas.height)
          {
             this.y = 0;

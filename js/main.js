@@ -49,12 +49,12 @@ function playGame()
     /* This is game specific code. It will be different for each game, as each game will have it own gameObjects */
 
     gameObjects[0] = new ScrollingBackgroundImage(scrollingBackgroundImage, 0,1);
-    gameObjects[1] = new StaticImage(player,130,canvas.height-70,45,45,true);
+    gameObjects[1] = new StaticImage(player,130,canvas.height-100,45,45,true);
 
     gameObjects[2] = new StaticImage(bad1,130,canvas.height-400,45,45,false);
-    gameObjects[3] = new StaticImage(bad2,330,canvas.height-190,45,45,false);
+    gameObjects[3] = new StaticImage(bad2,330,canvas.height-300,45,45,false);
     gameObjects[4] = new StaticImage(bad3,330,canvas.height-500,45,45,false);
-    gameObjects[5] = new StaticImage(bad1,330,canvas.height-250,45,45,false);
+    gameObjects[5] = new StaticImage(bad1,330,canvas.height-180,45,45,false);
 
     // make the canvas wider for this example
     document.getElementById("gameCanvas").style.width = "300px";
@@ -73,3 +73,4 @@ function playGame()
 function clickScreen(){
     gameObjects[1].movePlayer()
 }
+
