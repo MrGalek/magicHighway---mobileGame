@@ -56,18 +56,25 @@ class CanvasGame
                 gameObjects[i].render();
             }
         }
+
+        
     }
     
     collisionDetection()
-    {
+    {   
+        
         for(let i=2; i<=5;i++){
-            if((gameObjects[i].x-gameObjects[1].x > -10 && gameObjects[i].x-gameObjects[1].x < 10) && (gameObjects[i].y-gameObjects[1].y > -10 && gameObjects[i].y-gameObjects[1].y < 10)){
+            if(((gameObjects[i].x-gameObjects[1].x > -10 && gameObjects[i].x-gameObjects[1].x < 10) && (gameObjects[i].y-gameObjects[1].y > -10 && gameObjects[i].y-gameObjects[1].y < 10) || gameObjects[9].text==0)){
                 for(let j=0; j<gameObjects.length; j++){
                     gameObjects[j].stop();
-                    
                 }
-                gameObjects[8].setText("Game Over");
+                gameObjects[11].setText("Game Over");
+                gameObjects[11].centerText();
             }
+        }
+        if(((gameObjects[10].x-gameObjects[1].x > -5 && gameObjects[10].x-gameObjects[1].x < 5) && (gameObjects[10].y-gameObjects[1].y > -5 && gameObjects[10].y-gameObjects[1].y < 5))){
+            gameObjects[9].setValue(1);
+            //gameObjects[10].stopAndHide();
         }
     }
 }

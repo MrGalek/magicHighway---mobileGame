@@ -35,15 +35,24 @@ class StaticText extends GameObject
             this.colour = "white"
          }
 
-         if(this.pointFlag == true){
-             console.log("asdas");
+         if(this.pointFlag == 1){
              this.text++;
+         } else if(this.pointFlag ==2){
+            this.text--;
          }
     }
 
     setText(text)
     {
         this.text = text;
+    }
+
+    setValue(value){
+        this.text = this.text + value;
+    }
+
+    centerText()
+    {
         this.width = ctx.measureText(this.text).width;
         this.x = (canvas.width - this.width) / 2;
     }
