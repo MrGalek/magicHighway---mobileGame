@@ -61,10 +61,12 @@ class CanvasGame
     collisionDetection()
     {
         for(let i=2; i<=5;i++){
-            if(gameObjects[i].x==gameObjects[1].x && gameObjects[i].y==gameObjects[1].y){
+            if((gameObjects[i].x-gameObjects[1].x > -10 && gameObjects[i].x-gameObjects[1].x < 10) && (gameObjects[i].y-gameObjects[1].y > -10 && gameObjects[i].y-gameObjects[1].y < 10)){
                 for(let j=0; j<gameObjects.length; j++){
                     gameObjects[j].stop();
+                    
                 }
+                gameObjects[8].setText("Game Over");
             }
         }
     }
