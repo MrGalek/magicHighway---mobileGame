@@ -11,7 +11,7 @@
     /* the canvas styling usually does not change */
     outline:1px solid darkgrey;
     width:500px;
-    height:500px;
+    height:568px;
 }
 
 #loadingMessage
@@ -22,4 +22,18 @@
     left:100px;
     z-index:100;
     font-size:50px;
+}
+
+#leftPad
+{
+    height:284px;
+    width:160px;
+    background-color: blue;
+}
+
+#rightPad
+{
+    height:284px;
+    width:160px;
+    background-color: red;
 }

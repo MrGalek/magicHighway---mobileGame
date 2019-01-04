@@ -52,30 +52,36 @@ function playGame()
     /* This is game specific code. It will be different for each game, as each game will have it own gameObjects */
 
     gameObjects[0] = new ScrollingBackgroundImage(scrollingBackgroundImage, 0,2);
-    gameObjects[1] = new StaticImage(player,130,canvas.height-100,45,45,true);
-
+    gameObjects[1] = new StaticImage(player,360,canvas.height-100,45,45,true);
+    //110 ok for left 
+    //235 ok for main pass
+    //360 ok for right
     //Bad cars
-    gameObjects[2] = new StaticImage(bad1,130,canvas.height-400,45,45,false);
-    gameObjects[3] = new StaticImage(bad2,330,canvas.height-300,45,45,false);
-    gameObjects[4] = new StaticImage(bad3,330,canvas.height-500,45,45,false);
-    gameObjects[5] = new StaticImage(bad1,330,canvas.height-180,60,45,false);
+    gameObjects[2] = new StaticImage(bad1,110,canvas.height-400,45,45,false);
+    gameObjects[3] = new StaticImage(bad2,235,canvas.height-300,45,45,false);
+    gameObjects[4] = new StaticImage(bad3,360,canvas.height-500,45,45,false);
+    gameObjects[5] = new StaticImage(bad1,110,canvas.height-180,45,45,false);
 
     //Point HUD
     gameObjects[6] = new StaticText("Point",canvas.width-85,canvas.height-80,"Impact",40,"white",0);
     gameObjects[7] = new StaticText("",canvas.width-45,canvas.height-40,"Impact",40,"white",1);
     //Fuel HUD
-    gameObjects[8] = new StaticText("Fuel",0,canvas.height-80,"Impact",40,"white",0);
+    gameObjects[8] = new StaticText("Fuel",0,canvas.height-75,"Impact",40,"white",0);
     gameObjects[9] = new StaticText("20",20,canvas.height-40,"Impact",40,"white",2);
     
     //Fuel object
-    gameObjects[10] = new StaticImage(fuel,330,canvas.height-250,64,50,false);
+    gameObjects[10] = new StaticImage(fuel,110,canvas.height-250,64,50,false);
 
     //Game Over
     gameObjects[11] = new StaticText("",STATIC_TEXT_CENTRE,canvas.height/2,"Impact",40,"red",false);
 
-
     // make the canvas wider for this example
-    document.getElementById("gameCanvas").style.width = "300px";
+    document.getElementById("gameCanvas").style.width = "320px";
+	document.getElementById("gameCanvas").addEventListener("touchstart", function(e) {
+        gameObjects[1].movePlayer(e.touches[0].clientX)
+      }, false);
+      
+   
     /* END OF game specific code. */
 
     /* Always create a game that uses the gameObject array */
@@ -87,8 +93,3 @@ function playGame()
     
     /* If they are needed, then include any game-specific mouse and keyboard listners */
 }
-
-function clickScreen(){
-    gameObjects[1].movePlayer()
-}
-
