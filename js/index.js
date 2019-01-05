@@ -25,7 +25,7 @@ let gameObjects = [];
 window.addEventListener("load", onAllAssetsLoaded);           // needed for websites
 document.addEventListener("deviceready", onAllAssetsLoaded);  // needed for Cordova mobile apps
 
-document.write("<div id='loadingMessage'>Loading...</div>");
+document.write("<div id='loadingMessage'>Magic Highway</div>");
 function onAllAssetsLoaded()
 {
     /* hide the webpage loading message */

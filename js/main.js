@@ -50,12 +50,9 @@ function playGame()
 
     /* Create the various gameObjects for this game. */
     /* This is game specific code. It will be different for each game, as each game will have it own gameObjects */
-
+    var gameOver = false;
     gameObjects[0] = new ScrollingBackgroundImage(scrollingBackgroundImage, 0,2);
-    gameObjects[1] = new StaticImage(player,360,canvas.height-100,45,45,true);
-    //110 ok for left 
-    //235 ok for main pass
-    //360 ok for right
+    gameObjects[1] = new StaticImage(player,235,canvas.height-100,45,45,true);
     //Bad cars
     gameObjects[2] = new StaticImage(bad1,110,canvas.height-400,45,45,false);
     gameObjects[3] = new StaticImage(bad2,235,canvas.height-300,45,45,false);
@@ -76,9 +73,15 @@ function playGame()
     gameObjects[11] = new StaticText("",STATIC_TEXT_CENTRE,canvas.height/2,"Impact",40,"red",false);
 
     // make the canvas wider for this example
+    
+
     document.getElementById("gameCanvas").style.width = "320px";
 	document.getElementById("gameCanvas").addEventListener("touchstart", function(e) {
-        gameObjects[1].movePlayer(e.touches[0].clientX)
+        if (gameObjects[11].gameOver == false){
+        gameObjects[1].movePlayer(e.touches[0].clientX,320)
+        }else{
+            document.location.reload();
+        }
       }, false);
       
    

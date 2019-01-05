@@ -34,10 +34,10 @@ class StaticImage extends GameObject
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
 
-    movePlayer(positionX){
+    movePlayer(positionX,widthOfScreen){
 
         var actualCarX = this.x
-        if(positionX <= (canvas.width / 2)){ //go left
+        if(positionX <= (widthOfScreen / 2)){ //go left
             if(actualCarX == 235){
                 this.x = 110;
             }else if(actualCarX == 360){
@@ -64,17 +64,18 @@ class StaticImage extends GameObject
         var side = Math.floor((Math.random()*3))
 
         switch (side){
-            case 1:
+            case 0:
                 this.x = 110
                 break
-            case 2:
+            case 1:
                 this.x = 235
                 break
-            case 3:
+            case 2:
                 this.x = 360
                 break
             
         }
+        console.log(side);
 
     }
 }

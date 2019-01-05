@@ -68,13 +68,14 @@ class CanvasGame
                 for(let j=0; j<gameObjects.length; j++){
                     gameObjects[j].stop();
                 }
-                gameObjects[11].setText("Game Over");
+                gameObjects[11].setText("Game Over \n Click to repeat");
                 gameObjects[11].centerText();
+                gameObjects[11].gameOver = true;
             } 
         }
         if(((gameObjects[10].x-gameObjects[1].x > -5 && gameObjects[10].x-gameObjects[1].x < 5) && (gameObjects[10].y-gameObjects[1].y > -5 && gameObjects[10].y-gameObjects[1].y < 5))){
             gameObjects[9].setValue(1);
-            //gameObjects[10].stopAndHide();
+            gameObjects[10].x = this.width + 1;
         }
     }
 }

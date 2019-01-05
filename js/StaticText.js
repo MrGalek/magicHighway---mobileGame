@@ -17,6 +17,7 @@ class StaticText extends GameObject
         this.fontSize = fontSize;
         this.colour = colour;
         this.pointFlag = pointFlag;
+        this.gameOver = false
         
 
         ctx.font = this.fontSize + "px " + this.font;
